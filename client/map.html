@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Location — Map</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body class="map-page">
+
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="status-dot" id="status-dot"></div>
+      <h1>Live Location</h1>
+    </div>
+    <div class="topbar-right">
+      <span class="user-info" id="user-info"></span>
+      <button class="btn-logout" id="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <div class="map-container">
+    <div id="map"></div>
+
+    <!-- Online users sidebar -->
+    <div class="sidebar">
+      <h3>Online (<span id="user-count">0</span>)</h3>
+      <div class="user-list" id="user-list">
+        <p class="no-users">No users online</p>
+      </div>
+    </div>
+
+    <!-- Location status pill -->
+    <div class="location-status" id="location-status">Waiting for location…</div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.socket.io/4.8.0/socket.io.min.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>
