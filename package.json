@@ -1,0 +1,13 @@
+{
+  "name": "live-location",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:all": "pnpm --prefix server install && pnpm --prefix worker install",
+    "start": "docker compose up -d && pnpm install:all && wait-on -t 30000 tcp:localhost:5435 && sleep 8 && pnpm --prefix server run db:generate && pnpm --prefix server run db:migrate && concurrently -n \"server,worker\" -c \"cyan,yellow\" \"pnpm --prefix server dev\" \"pnpm --prefix worker dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "wait-on": "^8.0.0"
+  }
+}
